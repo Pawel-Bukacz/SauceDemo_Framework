@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="2"
+       name="SauceDemo smoke suit"
+       parallel="tests">
+
+    <listeners>
+        <listener class-name="listeners.TestListener"/>
+    </listeners>
+
+    <test name="Smoke tests - thread 1">
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="tests.LoginTest"/>
+            <class name="tests.ShoppingCartTest"/>
+            <class name="tests.SideBarTest"/>
+        </classes>
+    </test>
+
+    <test name="Smoke tests - thread 2">
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="tests.FooterTest"/>
+            <class name="tests.InventoryTest"/>
+            <class name="tests.LocatorsTest"/>
+        </classes>
+    </test>
+</suite>
